@@ -1,0 +1,59 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:this="http://thisdiagram/ChangeSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diag="http://thisdiagram" xmlns:Client="http://thisdiagram/Client" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/ChangeSchema">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/ChangeSchema" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_-3jJ5mWjEeWQSq2yN3_lxw"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Client" bpdm:prefix="Client" bpdm:comment="contrib=&apos;partner-pool:///_-3jJ5mWjEeWQSq2yN3_lxw"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="ForClient">
+                <wsdl:operation name="Receive" bpdm:source="partner-pool:///_-3jJ5mWjEeWQSq2yN3_lxw">
+                    <wsdl:input message="this:ReceiveRequest" name="Receive"/>
+                    <wsdl:output message="this:ReceiveResponse" name="ReceiveResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <xs:element name="ReceiveRequest" type="xs:string" bpdm:source="partner-pool:///_-3jJ5mWjEeWQSq2yN3_lxw"/>
+            <wsdl:message name="ReceiveRequest" bpdm:source="partner-pool:///_-3jJ5mWjEeWQSq2yN3_lxw">
+                <wsdl:part name="body" element="this:ReceiveRequest"/>
+            </wsdl:message>
+            <xs:element name="ReceiveResponse" type="xs:string" bpdm:source="partner-pool:///_-3jJ5mWjEeWQSq2yN3_lxw"/>
+            <wsdl:message name="ReceiveResponse" bpdm:source="partner-pool:///_-3jJ5mWjEeWQSq2yN3_lxw">
+                <wsdl:part name="body" element="this:ReceiveResponse"/>
+            </wsdl:message>
+            <bpel:binding name="CanonicBindingForClient" type="this:ForClient" bpdm:isSynchronized="true"/>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_-3jJ5mWjEeWQSq2yN3_lxw" bpdm:label="Client"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="ChangeSchema" bpdm:ID="_Vpc0YGWkEeWQSq2yN3_lxw">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="changeSchemaAndClientPlkVar" partnerLinkType="diag:ChangeSchemaAndClient" myRole="ChangeSchema_for_Client" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForClient" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/ChangeSchema/Client" bpdm:providedIsDefault="true" bpdm:clientTasks="_Vpc0YGWkEeWQSq2yN3_lxw:_3XLTQGWkEeWQSq2yN3_lxw, _Vpc0YGWkEeWQSq2yN3_lxw:_XVsTwGWkEeWQSq2yN3_lxw" bpdm:isManaged="true" bpdm:otherPoolId="_-3jJ5mWjEeWQSq2yN3_lxw"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisReceiveRequestMsg" messageType="this:ReceiveRequest" bpdm:id="_XV_OwmWkEeWQSq2yN3_lxw" bpdm:messageIds="inc:_XVsTyWWkEeWQSq2yN3_lxw"/>
+            <bpel:variable name="thisReceiveResponseMsg" messageType="this:ReceiveResponse" bpdm:id="_4ZzN4GWkEeWQSq2yN3_lxw" bpdm:messageIds=" out:_4Zfr4GWkEeWQSq2yN3_lxw">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:ReceiveResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Receive" partnerLink="changeSchemaAndClientPlkVar" portType="this:ForClient" isMyRole="true" enableSharing="false" bpdm:label="Receive" bpdm:ID="_XVsTwGWkEeWQSq2yN3_lxw">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisReceiveRequestMsg" bpdm:msgVarScopeId="_Vpc0YGWkEeWQSq2yN3_lxw" bpdm:variableIsManaged="true" bpdm:messageType="this:ReceiveRequest" bpdm:ID="_XVsTyWWkEeWQSq2yN3_lxw"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="Receive" partnerLink="changeSchemaAndClientPlkVar" portType="this:ForClient" isMyRole="true" enableSharing="false" bpdm:label="Reply" bpdm:ID="_3XLTQGWkEeWQSq2yN3_lxw">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$thisReceiveRequestMsg.body</bpel:from>
+                        <bpel:to>$thisReceiveResponseMsg.body</bpel:to>
+<mapper:mapperLink>
+  <mapper:vertice id="970946381" targetPath="$thisReceiveResponseMsg.body" targetedBy="1410366521-arg0"></mapper:vertice>
+  <mapper:vertice id="1410366521" sourcePath="$thisReceiveRequestMsg.body"></mapper:vertice>
+</mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisReceiveResponseMsg" bpdm:msgVarScopeId="_Vpc0YGWkEeWQSq2yN3_lxw" bpdm:variableIsManaged="true" bpdm:messageType="this:ReceiveResponse" bpdm:ID="_4Zfr4GWkEeWQSq2yN3_lxw"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

@@ -1,0 +1,13 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:diag="http://thisdiagram" xmlns:ChangeSchema="http://thisdiagram/ChangeSchema" xmlns:Client="http://thisdiagram/Client" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://thisdiagram" bpdm:version="6000089" bpdm:canid="_-3jJ4GWjEeWQSq2yN3_lxw" bpdm:displayName="diag">
+  <pnlk:partnerLinkType name="ChangeSchemaAndClient" bpdm:poolOneId="_Vpc0YGWkEeWQSq2yN3_lxw" bpdm:poolOneIsExecutable="true" bpdm:poolOneName="ChangeSchema" bpdm:poolTwoId="_-3jJ5mWjEeWQSq2yN3_lxw" bpdm:poolTwoIsExecutable="false" bpdm:poolTwoName="Client">
+    <pnlk:role name="ChangeSchema_for_Client" portType="ChangeSchema:ForClient" bpdm:thisPoolId="_Vpc0YGWkEeWQSq2yN3_lxw">
+      <wsdl:portType name="ForClient">
+        <wsdl:operation name="Receive" bpdm:canid="_-3sT0GWjEeWQSq2yN3_lxw._3XLTQGWkEeWQSq2yN3_lxw._XVsTwGWkEeWQSq2yN3_lxw.">
+          <wsdl:input message="ChangeSchema:ReceiveRequest" name="Receive" bpdm:canid="_XVsTyWWkEeWQSq2yN3_lxw" bpdm:senderId="_-3sT0GWjEeWQSq2yN3_lxw" bpdm:receiverId="_XVsTwGWkEeWQSq2yN3_lxw" bpdm:senderName="Send" bpdm:receiverName="Receive" bpdm:receiverPoolId="_Vpc0YGWkEeWQSq2yN3_lxw" bpdm:bodyPartElemName="ReceiveRequest" bpdm:bodyPartElemType="xs:string"></wsdl:input>
+          <wsdl:output message="ChangeSchema:ReceiveResponse" name="ReceiveResponse" bpdm:canid="_4Zfr4GWkEeWQSq2yN3_lxw" bpdm:senderId="_3XLTQGWkEeWQSq2yN3_lxw" bpdm:receiverId="_-3sT0GWjEeWQSq2yN3_lxw" bpdm:senderName="Reply" bpdm:receiverName="Send" bpdm:receiverPoolId="_-3jJ5mWjEeWQSq2yN3_lxw" bpdm:bodyPartElemName="ReceiveResponse" bpdm:bodyPartElemType="xs:string"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+</wsdl:definitions>

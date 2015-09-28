@@ -1,0 +1,14 @@
+
+build.required=yes
+deploy.fileRuntimeSelection=ChangeSchema.bpm\:metadata.xsd\:ChangeSchemaXMLSchema.xsd\:
+deploy_bundleShouldBeDeployed=true
+deploy_serverUrl=http\://localhost\:8080/ode
+deploymenttimeout=120
+diagram_baseUri=http\://changeschema.com
+eclipse.preferences.version=1
+full.build.required=no
+is.mapper.too.many.elements.exceeded=no
+reset.node.cache=yes
+serverpingtimeout=10
+type=non.unique
+uuid=5a3ca1f4-a515-4160-9d4c-efabd3df9fe5

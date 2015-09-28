@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:this="http://changeschema.com/ChangeSchema/ChangeSchema" xmlns:diag="http://changeschema.com/ChangeSchema" xmlns:Client="http://changeschema.com/ChangeSchema/Client" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="ChangeSchema" name="ChangeSchema" bpmn:id="_Vpc0YGWkEeWQSq2yN3_lxw" targetNamespace="http://changeschema.com/ChangeSchema/ChangeSchema">
+  <bpel:import namespace="http://changeschema.com/ChangeSchema" location="ChangeSchema.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="http://changeschema.com/ChangeSchema/ChangeSchema" location="ChangeSchema-ChangeSchema.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="changeSchemaAndClientPlkVar" partnerLinkType="diag:ChangeSchemaAndClient" myRole="ChangeSchema_for_Client"/>
+  </bpel:partnerLinks>
+  <bpel:variables>
+    <bpel:variable name="thisReceiveRequestMsg" messageType="this:ReceiveRequest"/>
+    <bpel:variable name="thisReceiveResponseMsg" messageType="this:ReceiveResponse"/>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:receive partnerLink="changeSchemaAndClientPlkVar" portType="this:ForClient" operation="Receive" variable="thisReceiveRequestMsg" createInstance="yes" bpmn:label="Receive" name="Receive" bpmn:id="_XVsTwGWkEeWQSq2yN3_lxw"></bpel:receive>
+    <bpel:assign name="init-variables-ChangeSchema" bpmn:id="_XVsTwGWkEeWQSq2yN3_lxw">
+      <bpel:copy bpmn:label="$thisReceiveResponseMsg">
+        <bpel:from>
+          <bpel:literal>
+<this:ReceiveResponse></this:ReceiveResponse></bpel:literal>
+        </bpel:from>
+        <bpel:to>$thisReceiveResponseMsg.body</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign bpmn:label="Reply" name="Reply" bpmn:id="_3XLTQGWkEeWQSq2yN3_lxw">
+      <bpel:copy>
+        <bpel:from>$thisReceiveRequestMsg.body</bpel:from>
+        <bpel:to>$thisReceiveResponseMsg.body</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:reply partnerLink="changeSchemaAndClientPlkVar" portType="this:ForClient" operation="Receive" variable="thisReceiveResponseMsg" bpmn:label="Reply" name="Reply-1" bpmn:id="_3XLTQGWkEeWQSq2yN3_lxw"></bpel:reply>
+  </bpel:sequence>
+</bpel:process>
